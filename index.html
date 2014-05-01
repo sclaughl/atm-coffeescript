@@ -1,0 +1,24 @@
+<head>
+</head>
+
+<body>
+  <div data-id="container"></div>
+</body>
+
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/backbone/backbone.js"></script>
+<script src=".tmp/scripts/account.js"></script>
+<script src=".tmp/scripts/accounts.js"></script>
+<script src=".tmp/scripts/atm_view.js"></script>
+
+<script>
+  $(function() {
+    var collection = new Accounts([
+      {account_number: '1234', balance: 1000},
+      {account_number: '234', balance: 1500}
+    ]);
+    $('[data-id=container]').html(new AtmView({collection: collection}).render().el);
+  });
+</script>
+
